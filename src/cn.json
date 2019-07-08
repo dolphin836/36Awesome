@@ -1,0 +1,400 @@
+[
+    {
+        "name": "推 荐",
+        "mark": "recommend",
+        "data": [
+            {
+                "name": "时间戳转换",
+                "word": "Unix 时间戳与时间字符串格式互转工具",
+                "href": "https://tool.36awesome/TimestampTransform/index.html",
+                "icon": "far fa-clock",
+                "mark": "1"
+            },
+            {
+                "name": "生成随机密码",
+                "word": "生成随机、安全的密码",
+                "href": "https://tool.36awesome/GeneratorRandonPassword/index.html",
+                "icon": "fab fa-expeditedssl",
+                "mark": "2"
+            },
+            {
+                "name": "Json 转换",
+                "word": "Json 格式转换工具",
+                "href": "https://tool.36awesome/Json/index.html",
+                "mark": "3"
+            },
+            {
+                "name": "SQL 转换",
+                "word": "SQL 格式转换工具",
+                "href": "https://tool.36awesome/SQL/index.html",
+                "mark": "4"
+            }
+        ]
+    },
+    {
+        "name": "工 具",
+        "mark": "tool",
+        "data": [
+            {
+                "name": "图片优化",
+                "href": "https://tinypng.com",
+                "icon": "far fa-file-image",
+                "mark": "5"
+            },
+            {
+                "name": "移除图片背景",
+                "href": "https://www.remove.bg",
+                "icon": "far fa-file-image"
+            },
+            {
+                "name": "简历设计",
+                "href": "https://www.resumemaker.online/zh"
+            },
+            {
+                "name": "草料二维码",
+                "href": "https://cli.im",
+                "icon": "fas fa-qrcode"
+            },
+            {
+                "name": "Gitignore 文件生成",
+                "href": "https://www.gitignore.io",
+                "icon": "fab fa-git"
+            },
+            {
+                "name": "时间校准",
+                "href": "https://time.is"
+            },
+            {
+                "name": "Linux command",
+                "href": "http://wangchujiang.com/linux-command",
+                "icon": "fab fa-linux"
+            },
+            {
+                "name": "JSON Web Token",
+                "href": "https://jwt.io"
+            },
+            {
+                "name": "PDF 文件处理",
+                "href": "https://smallpdf.com",
+                "icon": "far fa-file-pdf"
+            },
+            {
+                "name": "选择开源协议",
+                "href": "http://choosealicense.online"
+            },
+            {
+                "name": "在线作图",
+                "href": "https://www.processon.com",
+                "icon": "far fa-file-powerpoint"
+            },
+            {
+                "name": "生成多终端预览图",
+                "href": "http://ami.responsivedesign.is"
+            },
+            {
+                "name": "Base64 Image Encoder",
+                "href": "https://www.base64-image.de"
+            },
+            {
+                "name": "松果文档",
+                "href": "https://www.sg.work",
+                "word": "专业级在线文档"
+            },
+            {
+                "name": "Firefox Send",
+                "href": "https://send.firefox.com",
+                "word": "简单、私密的文件分享服务"
+            }
+        ]
+    },
+    {
+        "name": "文 档",
+        "mark": "document",
+        "data": [
+            {
+                "name": "MDN",
+                "href": "https://developer.mozilla.org/zh-CN",
+                "icon": "fab fa-html5",
+                "mark": "m"
+            },
+            {
+                "name": "Bulma",
+                "href": "https://bulma.io/documentation",
+                "icon": "fab fa-html5",
+                "mark": "b"
+            },
+            {
+                "name": "Guzzle",
+                "href": "http://docs.guzzlephp.org/en/stable",
+                "icon": "fab fa-php",
+                "mark": "g"
+            },
+            {
+                "name": "Slim",
+                "href": "http://www.slimframework.com/docs",
+                "icon": "fab fa-php",
+                "mark": "s"
+            },
+            {
+                "name": "Twig",
+                "href": "https://twig.symfony.com",
+                "icon": "fab fa-php",
+                "mark": "t"
+            },
+            {
+                "name": "Medoo",
+                "href": "https://medoo.in",
+                "icon": "fab fa-php",
+                "mark": "m"
+            },
+            {
+                "name": "Swoole",
+                "href": "https://github.com/swoole/swoole-wiki",
+                "icon": "fab fa-php",
+                "mark": "s"
+            },
+            {
+                "name": "Bootstrap 4",
+                "href": "https://getbootstrap.com/docs/4.0/getting-started/introduction",
+                "icon": "fab fa-bootstrap"
+            },
+            {
+                "name": "CodeIgniter",
+                "href": "http://codeigniter.org.cn/user_guide",
+                "icon": "fab fa-php"
+            },
+            {
+                "name": "微信支付",
+                "href": "https://pay.weixin.qq.com/wiki/doc/api/index.html",
+                "icon": "fab fa-weixin"
+            },
+            {
+                "name": "微信公众平台",
+                "href": "https://mp.weixin.qq.com/wiki",
+                "icon": "fab fa-weixin"
+            },
+            {
+                "name": "PHP Redis",
+                "href": "https://github.com/phpredis/phpredis",
+                "icon": "fab fa-php"
+            },
+            {
+                "name": "Font Awesome",
+                "href": "https://fontawesome.com/icons",
+                "mark": "f"
+            }
+        ]
+    },
+    {
+        "name": "博 客",
+        "mark": "blog",
+        "data": [
+            {
+                "name": "阮一峰",
+                "href": "http://www.ruanyifeng.com/blog"
+            },
+            {
+                "name": "廖雪峰",
+                "href": "https://www.liaoxuefeng.com"
+            },
+            {
+                "name": "风雪之隅",
+                "href": "http://www.laruence.com"
+            },
+            {
+                "name": "酷壳",
+                "href": "https://coolshell.cn"
+            },
+            {
+                "name": "海兵大侠",
+                "href": "https://github.com/dolphin836/Blog",
+                "mark": "d"
+            }
+        ]
+    },
+    {
+        "name": "软 件",
+        "mark": "software",
+        "data": [
+            {
+                "name": "Asciinema",
+                "word": "命令行录像、分享工具",
+                "href": "https://asciinema.org"
+            },
+            {
+                "name": "Chocolatey",
+                "word": "Windows 包管理",
+                "href": "https://chocolatey.org",
+                "icon": "fab fa-windows"
+            },
+            {
+                "name": "Rufus 启动盘制作",
+                "href": "https://rufus.ie"
+            },
+            {
+                "name": "MyCLI 补全和高亮",
+                "href": "https://www.mycli.net"
+            },
+            {
+                "name": "Everything",
+                "href": "https://www.voidtools.com/zh-cn",
+                "icon": "fab fa-sistrix"
+            },
+            {
+                "name": "火绒安全",
+                "href": "https://www.huorong.cn",
+                "icon": "fab fa-expeditedssl"
+            },
+            {
+                "name": "ExpressVPN",
+                "href": "https://www.get-express-vpn.com"
+            },
+            {
+                "name": "石墨文档",
+                "href": "https://shimo.im/welcome",
+                "word": "全新一代云端 Office，面向未来的办公软件",
+                "icon": "far fa-file-word"
+            },
+            {
+                "name": "Youtube-dl",
+                "href": "http://ytdl-org.github.io/youtube-dl",
+                "word": "Download videos from YouTube or more sites",
+                "icon": "fab fa-youtube"
+            },
+            {
+                "name": "Postman",
+                "href": "https://www.getpostman.com",
+                "word": "API Development Environment"
+            },
+            {
+                "name": "Redis Desktop Manager",
+                "href": "https://redisdesktop.com",
+                "word": "Redis GUI management tool for Windows, Mac OS X, Ubuntu and Debian."
+            },
+            {
+                "name": "DBeaver Community",
+                "href": "https://dbeaver.io",
+                "word": "Free Universal Database Tool"
+            }
+        ]
+    },
+    {
+        "name": "学 习",
+        "mark": "learn",
+        "data": [
+            {
+                "name": "Love2 开源文档",
+                "href": "https://love2.io",
+                "word": "一个全新的开源技术文档分享平台"
+            },
+            {
+                "name": "LeetCode",
+                "href": "https://leetcode-cn.com",
+                "word": "全球极客挚爱的高质量技术成长平台"
+            }
+        ]
+    },
+    {
+        "name": "前 端",
+        "mark": "frontend",
+        "data": [
+            {
+                "name": "React",
+                "word": "用于构建用户界面的 JavaScript 库",
+                "href": "https://zh-hans.reactjs.org",
+                "icon": "fab fa-react"
+            },
+            {
+                "name": "Vue",
+                "word": "渐进式 JavaScript 框架",
+                "href": "https://cn.vuejs.org",
+                "icon": "fab fa-vuejs"
+            },
+            {
+                "name": "淘宝 NPM 镜像",
+                "href": "https://npm.taobao.org",
+                "icon": "fab fa-npm"
+            },
+            {
+                "name": "Webpack",
+                "href": "https://www.webpackjs.com"
+            },
+            {
+                "name": "Gulp",
+                "href": "https://www.gulpjs.com.cn",
+                "icon": "fab fa-gulp"
+            },
+            {
+                "name": "Iconfont",
+                "word": "阿里巴巴矢量图标库",
+                "href": "https://www.iconfont.cn"
+            },
+            {
+                "name": "Sass",
+                "href": "https://www.sasscss.com",
+                "word": "成熟、稳定、强大的 CSS 扩展语言解析器",
+                "icon": "fab fa-sass"
+            },
+            {
+                "name": "Ant Design",
+                "href": "https://ant.design/index-cn"
+            }
+        ]
+    },
+    {
+        "name": "社 区",
+        "mark": "community",
+        "data": [
+            {
+                "name": "掘金",
+                "word": "一个帮助开发者成长的社区",
+                "href": "https://juejin.im"
+            },
+            {
+                "name": "SegmentFault 思否",
+                "href": "https://segmentfault.com"
+            },
+            {
+                "name": "少数派",
+                "word": "高效工作，品质生活",
+                "href": "https://sspai.com"
+            },
+            {
+                "name": "InfoQ 中国",
+                "word": "促进软件开发领域知识与创新的传播",
+                "href": "https://www.infoq.cn"
+            },
+            {
+                "name": "V2EX",
+                "href": "https://www.v2ex.com"
+            },
+            {
+                "name": "CODING",
+                "word": "一站式软件研发管理平台",
+                "href": "https://coding.net"
+            },
+            {
+                "name": "简书",
+                "href": "https://www.jianshu.com"
+            }
+        ]
+    },
+    {
+        "name": "游 戏",
+        "mark": "game",
+        "data": [
+            {
+                "name": "俄罗斯方块",
+                "href": "https://chvin.github.io/react-tetris"
+            },
+            {
+                "name": "坦克大战",
+                "href": "https://battle-city.js.org"
+            },
+            {
+                "name": "2048",
+                "href": "http://ivanvergiliev.github.io/2048-react"
+            }
+        ]
+    }
+]

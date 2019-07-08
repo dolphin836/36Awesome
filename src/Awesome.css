@@ -1,0 +1,27 @@
+.title {
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #F5F5F5;
+    position: relative;
+    cursor: pointer;
+    margin-top: 1.5rem;
+}
+
+.title span {
+    margin-left: 1rem;
+}
+
+.control.has-icons-right .icon {
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+.top {
+    position: fixed;
+    right: 2rem;
+    bottom: 4rem;
+}
+
+.tabs ul,
+.tabs a {
+    border-bottom-color: #F5F5F5;
+}
