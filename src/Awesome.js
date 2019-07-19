@@ -201,36 +201,8 @@ document.addEventListener('DOMContentLoaded', () => {
         let siteArr = group.data;
 
         siteArr.map(function (site, i) {
-            if (i % 4 == 0) {
-                let div       = createNode('div');
-                div.className = 'columns';
-
-                append(main, div);  
-            }
-
             addGroupSite(site);
         });
-        // 补全列
-        let groupArr = main.children;
-
-        for (let i = 0; i < groupArr.length; i++) {
-            if (groupArr[i].nodeName != 'DIV') {
-                continue;
-            }
-
-            let length = groupArr[i].children.length;
-
-            if (length >= 4) {
-                continue;
-            }
-
-            let emptyCount = 4 - length;
-
-            for (let k = 0; k < emptyCount; k++) {
-                let el = addEmpty();
-                append(groupArr[i], el); 
-            }
-        }
     }
 
     // 添加分组名称
@@ -261,44 +233,47 @@ document.addEventListener('DOMContentLoaded', () => {
 
         append(h1, span);
 
-        append(main, h1);
+        // 分组名称单独占一行
+        let div       = createNode('div');
+        div.className = 'column is-full';
+        append(div, h1);
+        // 链接到主节点
+        append(main, div);
     }
 
     // 添加网站
     function addGroupSite(site) {
-        let group = main.children;
-
-        for (let i = 0; i < group.length; i++) {
-            if (group[i].nodeName != 'DIV') {
-                continue;
-            }
-
-            if (group[i].children.length >= 4) {
-                continue;
-            }
-
-            if (site.icon === undefined) {
-                site.icon = 'far fa-circle';
-            }
-
-            let word = '';
-
-            if (site.word !== undefined) {
-                word = site.word;
-            }
-
-            if (site.mark !== undefined) {
-                word += '\n快捷键：' + site.mark;
-            }
-
-            let html = '<div class="tags has-addons are-medium" title="' + word + '"><span class="tag"><span class="icon is-medium"><i class="' + site.icon + '"></i></span></span><span class="tag is-rounded is-primary"><a href="' + site.href + '" class="has-text-white" target="_blank">' + site.name + '</a></span></div>';
-            let div  = createNode('div');
-
-            div.className = 'column';
-            div.innerHTML = html;
-
-            append(group[i], div); 
+        if (site.icon === undefined) {
+            site.icon = 'far fa-circle';
         }
+
+        let word = '';
+
+        if (site.word !== undefined) {
+            word = site.word;
+        }
+
+        if (site.mark !== undefined) {
+            word += '\n快捷键：' + site.mark;
+        }
+
+        let html = '<div class="tags has-addons are-medium" title="' + word + '">' +
+                        '<span class="tag">' +
+                            '<span class="icon is-medium">' +
+                                '<i class="' + site.icon + '"></i>' +
+                            '</span>' +
+                        '</span>' +
+                        '<span class="tag is-rounded is-primary"> ' +
+                            '<a href="' + site.href + '" class="has-text-white" target="_blank">' + site.name + '</a>' +
+                        '</span>' +
+                    '</div>';
+
+        let column  = createNode('div');
+        // 手机端 1 列、平板端 2 列、桌面端 3 列、高分辨端 4 列
+        column.className = 'column is-half-tablet is-one-third-desktop is-one-quarter-fullhd';
+        column.innerHTML = html;
+        // 链接到主节点
+        append(main, column);
         // 绑定键盘快捷键
         if (site.mark !== undefined) {
             Mousetrap.bind(site.mark, function() {

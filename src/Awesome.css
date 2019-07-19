@@ -1,3 +1,13 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.app {
+    flex: 1;
+}
+
 .title {
     padding-bottom: 1.5rem;
     border-bottom: 1px solid #F5F5F5;
