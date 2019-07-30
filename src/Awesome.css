@@ -8,6 +8,14 @@ body {
     flex: 1;
 }
 
+.head {
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    background: white;
+    padding: 3rem 1rem 0 1rem;
+}
+
 .title {
     padding-bottom: 1.5rem;
     border-bottom: 1px solid #F5F5F5;

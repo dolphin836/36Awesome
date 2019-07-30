@@ -4,18 +4,18 @@ document.addEventListener('DOMContentLoaded', () => {
         search       = document.getElementById("search"),
         searchInput  = document.getElementById("search-input"),
         topButton    = document.getElementById("top-button");
-        
     // 全局变量，所有的网站数据，用于搜索
     var Data = new Array();
     // 返回顶部按钮是否隐藏
     var isHiddenTopButton = true;
+    // 分组标题的坐标，用于滚动时导航栏的定位
+    var titleY = new Array();
     // 初始化
     init();
-
     // 初始化滚动事件
     new SmoothScroll('a[href*="#"]', {
         updateURL: false,
-        offset: 80
+        offset: 280
     });
 
     // 页面滚动事件：控制返回顶部按钮的显示和隐藏
@@ -30,6 +30,16 @@ document.addEventListener('DOMContentLoaded', () => {
         if (Y < 337 && ! isHiddenTopButton) {
             topButton.classList.add("is-hidden");
             isHiddenTopButton = true;
+        }
+        // 小于 200 
+        if (Y <= 150) {
+            activeNav(titleY[0][0]);
+        } else {
+            titleY.map(function (item) {
+                if (Y + 20 >= item[1]) {
+                    activeNav(item[0]);
+                }
+            });
         }
     });
 
@@ -179,9 +189,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // 添加快捷导航
     function addMenu(name, mark) {
         let li = createNode('li');
+        // 第一个
+        let navArr   = menu.children;
 
-        if (mark == 'recommend') {
-            li.className = 'is-active';
+        if (navArr.length === 0) {
+            li.className = mark + '-nav' + ' is-active';
+        } else {
+            li.className = mark + '-nav';
         }
 
         let a  = createNode('a');
@@ -239,6 +253,9 @@ document.addEventListener('DOMContentLoaded', () => {
         append(div, h1);
         // 链接到主节点
         append(main, div);
+        // 记录分组标题的 Y 坐标
+        let Y = [group.mark, h1.offsetTop];
+        titleY.push(Y);
     }
 
     // 添加网站
@@ -282,13 +299,21 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    //
-    function addEmpty() {
-        let div       = createNode('div');
+    // 设置导航栏状态
+    function activeNav(item) {
+        let navArr = menu.children;
 
-        div.className = 'column';
-
-        return div;  
+        for (let i = 0; i < navArr.length; i++) {
+            if (navArr[i].classList.contains(item + "-nav")) {
+                if (! navArr[i].classList.contains("is-active")) {
+                    navArr[i].classList.add("is-active");
+                }
+            } else {
+                if (navArr[i].classList.contains("is-active")) {
+                    navArr[i].classList.remove("is-active");
+                }
+            }
+        }
     }
 
     // 创建节点
