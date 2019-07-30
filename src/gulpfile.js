@@ -40,7 +40,7 @@ gulp.task('awesome-css', function() {
 
 // JavaScript 文件
 gulp.task('awesome-script', function() {                         
-    gulp.src(['./node_modules/fuse.js/dist/fuse.js', './node_modules/store/dist/store.modern.min.js', './node_modules/mousetrap/mousetrap.js', './node_modules/smooth-scroll/dist/smooth-scroll.polyfills.js', './Awesome.js'])
+    gulp.src(['./node_modules/fuse.js/dist/fuse.js', './node_modules/store/dist/store.modern.min.js', './node_modules/mousetrap/mousetrap.js', './Awesome.js'])
         .pipe(uglify())
         .pipe(concat('awesome.js'))
         .pipe(rev())
@@ -66,9 +66,12 @@ gulp.task('clean', function() {
     del
     (
         [
-            'en-*.json',
-            'cn-*.json'
-        ]
+            '../dist',
+            '../en-*.json',
+            '../cn-*.json',
+            '../index.html',
+            '../en.html'
+        ], {force: true}
     )
 });
 

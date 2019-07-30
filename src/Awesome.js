@@ -5,17 +5,21 @@ document.addEventListener('DOMContentLoaded', () => {
         searchInput  = document.getElementById("search-input"),
         topButton    = document.getElementById("top-button");
     // 全局变量，所有的网站数据，用于搜索
-    var Data = new Array();
+    var Data              = new Array();
     // 返回顶部按钮是否隐藏
     var isHiddenTopButton = true;
     // 分组标题的坐标，用于滚动时导航栏的定位
-    var titleY = new Array();
+    var titleY            = new Array();
+
     // 初始化
     init();
-    // 初始化滚动事件
-    new SmoothScroll('a[href*="#"]', {
-        updateURL: false,
-        offset: 280
+
+    // 回到顶部事件
+    topButton.addEventListener('click', function(e) {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     });
 
     // 页面滚动事件：控制返回顶部按钮的显示和隐藏
@@ -201,7 +205,17 @@ document.addEventListener('DOMContentLoaded', () => {
         let a  = createNode('a');
 
         a.innerHTML = name;
-        a.href      = '#' + mark;
+        // 添加点击事件
+        a.addEventListener('click', function(e) {
+            titleY.map(function (item) {
+                if (mark === item[0]) {
+                    window.scrollTo({
+                        top: item[1] - 20,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
 
         append(li, a);
         append(menu, li);
@@ -225,21 +239,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         h1.className = 'title up';
         h1.innerHTML = group.name;
-        h1.id        = group.mark;
-        // 收起 - 展开事件
-        h1.addEventListener('click', function () {
-            let el = this;
-
-            while (el) { 
-                el = el.nextElementSibling;
-
-                if (! el || el.nodeName == 'H1') {
-                    break;
-                }
-
-                el.classList.toggle('is-hidden');
-            }
-        });
         // 数量
         let span       = createNode('span');
         span.className = 'is-size-6 has-text-grey-light';
@@ -250,6 +249,21 @@ document.addEventListener('DOMContentLoaded', () => {
         // 分组名称单独占一行
         let div       = createNode('div');
         div.className = 'column is-full';
+        // 收起 - 展开事件
+        div.addEventListener('click', function () {
+            let el = this;
+
+            while (el) { 
+                el = el.nextElementSibling;
+
+                if (! el || el.classList.contains("is-full")) {
+                    break;
+                }
+
+                el.classList.toggle('is-hidden');
+            }
+        });
+
         append(div, h1);
         // 链接到主节点
         append(main, div);
