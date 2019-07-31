@@ -16,7 +16,7 @@ gulp.task('font', function() {
 
 // Site 文件
 gulp.task('json', function() {
-    gulp.src(['./en.json', './cn.json'])
+    gulp.src('./site.json')
         .pipe(rev())
         .pipe(gulp.dest('..'))
         .pipe(rev.manifest({
@@ -52,7 +52,7 @@ gulp.task('awesome-script', function() {
 });
 
 gulp.task('rev', function() {
-    gulp.src(['../dist/rev/*.json', './index.html', './en.html'])
+    gulp.src(['../dist/rev/*.json', './index.html'])
         .pipe(htmlReplace({
             'awesome-css': '/dist/css/awesome.css',
             'awesome-script': '/dist/js/awesome.js'
@@ -67,10 +67,8 @@ gulp.task('clean', function() {
     (
         [
             '../dist',
-            '../en-*.json',
-            '../cn-*.json',
-            '../index.html',
-            '../en.html'
+            '../site-*.json',
+            '../index.html'
         ], {force: true}
     )
 });
