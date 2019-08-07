@@ -6,6 +6,7 @@ let rev          = require('gulp-rev');               // 对文件名加MD5后�
 let revCollector = require('gulp-rev-collector');     // 路径替换
 let htmlReplace  = require('gulp-html-replace');      // Html 替换
 let uglify       = require('gulp-uglify-es').default; // JavaScript 文件压缩
+let browserSync  = require('browser-sync').create();
 
 
 // Font Awesome 字体资源
@@ -71,6 +72,17 @@ gulp.task('clean', function() {
             '../index.html'
         ], {force: true}
     )
+});
+
+// Static server
+gulp.task('sync', function() {
+    browserSync.init({
+        server: {
+            baseDir: "./"
+        }
+    });
+
+    gulp.watch(["index.html", "Awesome.css", "Awesome.js"]).on('change', browserSync.reload);
 });
 
 gulp.task('default', ['awesome-css', 'font', 'awesome-script', 'json']);
