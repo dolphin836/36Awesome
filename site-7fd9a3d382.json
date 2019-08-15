@@ -7,27 +7,23 @@
                 "name": "时间戳转换",
                 "word": "Unix 时间戳与时间字符串格式互转工具",
                 "href": "https://tool.36awesome/TimestampTransform/index.html",
-                "icon": "far fa-clock",
-                "mark": "1"
+                "icon": "far fa-clock"
             },
             {
                 "name": "生成随机密码",
                 "word": "生成随机、安全的密码",
                 "href": "https://tool.36awesome/GeneratorRandonPassword/index.html",
-                "icon": "fab fa-expeditedssl",
-                "mark": "2"
+                "icon": "fab fa-expeditedssl"
             },
             {
                 "name": "Json 转换",
                 "word": "Json 格式转换工具",
-                "href": "https://tool.36awesome/Json/index.html",
-                "mark": "3"
+                "href": "https://tool.36awesome/Json/index.html"
             },
             {
                 "name": "SQL 转换",
                 "word": "SQL 格式转换工具",
-                "href": "https://tool.36awesome/SQL/index.html",
-                "mark": "4"
+                "href": "https://tool.36awesome/SQL/index.html"
             }
         ]
     },
@@ -38,8 +34,7 @@
             {
                 "name": "图片优化",
                 "href": "https://tinypng.com",
-                "icon": "far fa-file-image",
-                "mark": "5"
+                "icon": "far fa-file-image"
             },
             {
                 "name": "移除图片背景",
@@ -114,44 +109,37 @@
             {
                 "name": "MDN",
                 "href": "https://developer.mozilla.org/zh-CN",
-                "icon": "fab fa-html5",
-                "mark": "m"
+                "icon": "fab fa-html5"
             },
             {
                 "name": "Bulma",
                 "href": "https://bulma.io/documentation",
-                "icon": "fab fa-html5",
-                "mark": "b"
+                "icon": "fab fa-html5"
             },
             {
                 "name": "Guzzle",
                 "href": "http://docs.guzzlephp.org/en/stable",
-                "icon": "fab fa-php",
-                "mark": "g"
+                "icon": "fab fa-php"
             },
             {
                 "name": "Slim",
                 "href": "http://www.slimframework.com/docs",
-                "icon": "fab fa-php",
-                "mark": "s"
+                "icon": "fab fa-php"
             },
             {
                 "name": "Twig",
                 "href": "https://twig.symfony.com",
-                "icon": "fab fa-php",
-                "mark": "t"
+                "icon": "fab fa-php"
             },
             {
                 "name": "Medoo",
                 "href": "https://medoo.in",
-                "icon": "fab fa-php",
-                "mark": "m"
+                "icon": "fab fa-php"
             },
             {
                 "name": "Swoole",
                 "href": "https://github.com/swoole/swoole-wiki",
-                "icon": "fab fa-php",
-                "mark": "s"
+                "icon": "fab fa-php"
             },
             {
                 "name": "Bootstrap 4",
@@ -180,8 +168,7 @@
             },
             {
                 "name": "Font Awesome",
-                "href": "https://fontawesome.com/icons",
-                "mark": "f"
+                "href": "https://fontawesome.com/icons"
             }
         ]
     },
@@ -207,8 +194,7 @@
             },
             {
                 "name": "海兵大侠",
-                "href": "https://github.com/dolphin836/Blog",
-                "mark": "d"
+                "href": "https://github.com/dolphin836/Blog"
             }
         ]
     },

@@ -192,19 +192,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 添加快捷导航
     function addMenu(name, mark) {
-        let li = createNode('li');
+        let li = createNode(menu, 'li', mark + '-nav');
         // 第一个
-        let navArr   = menu.children;
+        let navArr = menu.children;
 
         if (navArr.length === 0) {
             li.className = mark + '-nav' + ' is-active';
-        } else {
-            li.className = mark + '-nav';
         }
 
-        let a  = createNode('a');
-
-        a.innerHTML = name;
+        let a = createNode(li, 'a', '', name);
         // 添加点击事件
         a.addEventListener('click', function(e) {
             titleY.map(function (item) {
@@ -216,9 +212,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         });
-
-        append(li, a);
-        append(menu, li);
     }
 
     // 添加分组
@@ -235,20 +228,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 添加分组名称
     function addGroupName(group) {
-        let h1 = createNode('h1');
-
-        h1.className = 'title up';
-        h1.innerHTML = group.name;
-        // 数量
-        let span       = createNode('span');
-        span.className = 'is-size-6 has-text-grey-light';
-        span.innerHTML = group.data.length;
-
-        append(h1, span);
-
         // 分组名称单独占一行
-        let div       = createNode('div');
-        div.className = 'column is-full';
+        let div    = createNode(main, 'div', 'column is-full');
         // 收起 - 展开事件
         div.addEventListener('click', function () {
             let el = this;
@@ -263,10 +244,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 el.classList.toggle('is-hidden');
             }
         });
-
-        append(div, h1);
-        // 链接到主节点
-        append(main, div);
+        // 名称
+        let h1 = createNode(div, 'h1', 'title up', group.name);
+        // 数量
+        createNode(h1, 'span', 'is-size-6 has-text-grey-light', group.data.length);
         // 记录分组标题的 Y 坐标
         let Y = [group.mark, h1.offsetTop];
         titleY.push(Y);
@@ -284,10 +265,6 @@ document.addEventListener('DOMContentLoaded', () => {
             word = site.word;
         }
 
-        if (site.mark !== undefined) {
-            word += '\n快捷键：' + site.mark;
-        }
-
         let html = '<div class="tags has-addons are-medium" title="' + word + '">' +
                         '<span class="tag">' +
                             '<span class="icon is-medium">' +
@@ -298,19 +275,8 @@ document.addEventListener('DOMContentLoaded', () => {
                             '<a href="' + site.href + '" class="has-text-white" target="_blank">' + site.name + '</a>' +
                         '</span>' +
                     '</div>';
-
-        let column  = createNode('div');
         // 手机端 1 列、平板端 2 列、桌面端 3 列、高分辨端 4 列
-        column.className = 'column is-half-tablet is-one-third-desktop is-one-quarter-fullhd';
-        column.innerHTML = html;
-        // 链接到主节点
-        append(main, column);
-        // 绑定键盘快捷键
-        if (site.mark !== undefined) {
-            Mousetrap.bind(site.mark, function() {
-                window.open(site.href);
-            });
-        }
+        createNode(main, 'div', 'column is-half-tablet is-one-third-desktop is-one-quarter-fullhd', html);
     }
 
     // 设置导航栏状态
@@ -331,12 +297,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 创建节点
-    function createNode(element) {
-        return document.createElement(element);
-    }
+    function createNode(parent, element, className = '', innerHTML = '') {
+        let el = document.createElement(element);
 
-    // 追加节点
-    function append(parent, el) {
+        if (className !== '') {
+            el.className = className
+        }
+
+        if (innerHTML !== '') {
+            el.innerHTML = innerHTML
+        }
+
         return parent.appendChild(el);
     }
 });
