@@ -1,0 +1,136 @@
+import React, { Component, Fragment } from 'react';
+import { Link } from 'react-router-dom';
+import { API, signIn } from '../API';
+import { isAuthenticated } from '../Auth';
+import CommonError from '../Component/CommonError';
+import SignLayout from '../Component/SignLayout';
+
+class SignUp extends Component {
+  constructor(props) {
+    super(props);
+
+    if (isAuthenticated()) {
+      this.props.history.push("/account");
+    }
+
+    this.state = {
+            username: '',
+            password: '',
+      repeatPassword: '',
+               error: '',
+         commonError: ''
+    };
+  }
+  // 输入用户名
+  usernameChange = (e) => {
+    this.setState({
+      username: e.target.value
+    });
+  };
+  // 输入密码
+  passwordChange = (e) => {
+    this.setState({
+      password: e.target.value
+    });
+  };
+  // 确认密码
+  repeatPasswordChange = (e) => {
+    this.setState({
+      repeatPassword: e.target.value
+    });
+  };
+  // 注册
+  signUp = async event => {
+    event.preventDefault();
+
+    if (this.state.password != this.state.repeatPassword) {
+        // 设置错误信息
+        this.setState({
+          error: '密码不一致'
+        });
+
+        return;
+    }
+
+    let body = {
+      username: this.state.username,
+      password: this.state.password
+    };
+
+    try {
+      const response = await API.post(`/signup`, body);
+        
+      let json = response.data;
+
+      if (json.code != 0) {
+        // 设置错误信息
+        this.setState({
+          error: json.message
+        });
+
+        return;
+      }
+      // 取出数据
+      let data = json.data;
+      // 数据格式校验
+      if (! data.hasOwnProperty('member_id') || ! data.hasOwnProperty('token')) {
+        // 设置通用错误信息
+        this.setState({
+          commonError: 'Data Error'
+        });
+
+        return;
+      }
+      // 重置错误信息
+      this.setState({
+              error: '',
+        commonError: ''
+      });
+      // 更新 Token
+      signIn(data.token);
+      // 跳转主页
+      this.props.history.push("/account");
+    } catch (error) {
+
+    }
+  };
+
+  render() {
+    return (
+      <Fragment>
+        <SignLayout>
+          <div className="field">
+            <label className="label">用户名</label>
+            <div className="control">
+              <input className="input" type="text" value={ this.state.username } onChange={ this.usernameChange } />
+            </div>
+          </div>
+          <div className="field">
+            <label className="label">密 码</label>
+            <div className="control">
+              <input className="input" type="password" autoComplete="new-password" value={ this.state.password } onChange={ this.passwordChange } />
+            </div>
+          </div>
+          <div className="field">
+            <label className="label">确认密码</label>
+            <div className="control">
+              <input className="input" type="password" autoComplete="new-password" value={ this.state.repeatPassword } onChange={ this.repeatPasswordChange } />
+            </div>
+            <p className="help is-danger">{ this.state.error }</p>
+          </div>
+          <div className="field">
+            <button className="button is-link is-fullwidth" onClick={ this.signUp }>注 册</button>
+          </div>
+          <nav className="level">
+            <div className="level-item has-text-centered">
+              已有账号？请<Link to="/signin">登录</Link>
+            </div>
+          </nav>
+        </SignLayout>
+        <CommonError message={ this.state.commonError } />
+      </Fragment>
+    );
+  }
+}
+
+export default SignUp;

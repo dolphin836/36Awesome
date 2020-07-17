@@ -1,0 +1,33 @@
+@import "variables.scss";
+@import "~bulma/bulma.sass";
+
+body
+  background-color: $background-color
+  min-height: 100vh
+
+.hero-background 
+  @extend .hero
+  background-image: url('./Assent/Image/back.jpg')
+  background-size: cover
+
+.box-sign
+  max-width: 380px;
+  margin: 0 auto;
+
+.is-common-error
+  position: fixed
+  top: 2rem
+  right: 2rem
+
+.navbar-item img
+  max-height: 100%
+
+.menu-list
+  a.is-active
+    background: #e8f0fe
+    color: #1967d2
+    border-radius: 0 2rem 2rem 0
+
+
+
+  
