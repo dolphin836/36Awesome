@@ -1,6 +1,5 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import AccountLayout from '../../Component/AccountLayout';
-import AccountNav from '../../Component/AccountNav';
 
 class Bind extends Component {
     constructor(props) {
@@ -13,12 +12,9 @@ class Bind extends Component {
 
     render() {
         return (
-            <Fragment>
-                <AccountLayout></AccountLayout>
-                <AccountNav page="bind">
-                    Bind
-                </AccountNav>
-            </Fragment>
+            <AccountLayout page="bind" title="账号管理" subtitle="您在 36Awesome 中使用的邮箱、手机等">
+                
+            </AccountLayout>
         );
     }
 }

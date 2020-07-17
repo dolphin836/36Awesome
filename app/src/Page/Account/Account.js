@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import AccountLayout from '../../Component/AccountLayout';
-import { Link } from 'react-router-dom';
 
 class Account extends Component {
   constructor(props) {
@@ -13,8 +12,8 @@ class Account extends Component {
 
   render() {
     return (
-      <AccountLayout>
-
+      <AccountLayout page="account" title="个人信息" subtitle="您在 36Awesome 中使用的基本信息，例如您的姓名和头像">
+        
       </AccountLayout>
     );
   }

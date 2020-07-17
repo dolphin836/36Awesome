@@ -6,7 +6,6 @@ import SignUp from './Page/SignUp';
 import SignIn from './Page/SignIn';
 import Account from './Page/Account/Account';
 import AccountPassword from './Page/Account/Password';
-import AccountData from './Page/Account/Data';
 import AccountBind from './Page/Account/Bind';
 import AccountMail from './Page/Account/Mail';
 import './App.sass';
@@ -19,7 +18,6 @@ export default function App() {
       <Route exact path="/signin" component={SignIn} />
       <PrivateRoute exact path="/account" component={Account} />
       <PrivateRoute exact path="/account/password" component={AccountPassword} />
-      <PrivateRoute exact path="/account/data" component={AccountData} />
       <PrivateRoute exact path="/account/bind" component={AccountBind} />
       <PrivateRoute exact path="/account/mail" component={AccountMail} />
     </Router>

@@ -1,6 +1,5 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import AccountLayout from '../../Component/AccountLayout';
-import AccountNav from '../../Component/AccountNav';
 
 class Mail extends Component {
     constructor(props) {
@@ -13,12 +12,9 @@ class Mail extends Component {
 
     render() {
         return (
-            <Fragment>
-                <AccountLayout></AccountLayout>
-                <AccountNav page="mail">
-                    Mail
-                </AccountNav>
-            </Fragment>
+            <AccountLayout page="mail" title="邮件设置" subtitle="设置您的订阅等信息">
+                
+            </AccountLayout>
         );
     }
 }

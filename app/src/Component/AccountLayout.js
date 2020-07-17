@@ -36,44 +36,6 @@ class AccountLayout extends Component {
     render() {
         return (
             <Fragment>
-                {/* <nav className="navbar is-light" role="navigation" aria-label="main navigation">
-                    <div className="navbar-brand">
-                        <Link to="/" className="navbar-item">
-                            <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28" alt=""/>
-                        </Link>
-
-                        <a role="button" onClick={ this.navClick } className={ this.state.isActive ? 'navbar-burger burger is-active' : 'navbar-burger burger' } aria-label="menu" aria-expanded="false">
-                            <span aria-hidden="true"></span>
-                            <span aria-hidden="true"></span>
-                            <span aria-hidden="true"></span>
-                        </a>
-                    </div>
-
-                    <div className={ this.state.isActive ? 'navbar-menu is-active' : 'navbar-menu' }>
-                        <div className="navbar-start">
-                            <Link to="/" className="navbar-item">菜单导航一</Link>
-                            <Link to="/" className="navbar-item">菜单导航二</Link>
-                        </div>
-                        <div className="navbar-end">
-                            <div className="navbar-item has-dropdown is-hoverable">
-                                <a className="navbar-link is-arrowless">
-                                    <figure className="image is-32x32">
-                                        <img className="is-rounded" src={ Avatar } />
-                                    </figure>
-                                </a>
-                                <div className="navbar-dropdown is-right">
-                                    <Link to="/account/data" className="navbar-item">账户信息</Link>
-                                    <Link to="/account/password" className="navbar-item">修改密码</Link>
-                                    <Link to="/account/bind" className="navbar-item">账号管理</Link>
-                                    <Link to="/account/mail" className="navbar-item">邮件设置</Link>
-                                    <hr className="navbar-divider" />
-                                    <a className="navbar-item" onClick={ this.signOut }>退 出</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </nav> */}
-
                 <section className="section py-3 px-3">
                     <nav className="level is-mobile">
                         <div className="level-left">
@@ -86,7 +48,9 @@ class AccountLayout extends Component {
                         <div className="level-right">
                             <div className="level-item">
                                 <figure className="image is-32x32">
-                                    <img className="is-rounded" src={ Avatar } />
+                                    <Link to="/account">
+                                        <img className="is-rounded" src={ Avatar } />
+                                    </Link>
                                 </figure>
                             </div>
                         </div>
@@ -95,23 +59,42 @@ class AccountLayout extends Component {
 
                 <div className="columns">
                     <div className="column is-one-quarter">
-                        <section className="section pl-0 pt-4">
+                        <section className="section pl-0 pt-4 is-hidden-mobile" style={{ marginBottom: '-18rem' }}>
                             <aside className="menu">
                                 <ul className="menu-list">
-                                    <li><Link className="pl-5 py-3 is-active" to="/account/data">账户信息</Link></li>
-                                    <li><Link className="pl-5 py-3" to="/account/password">修改密码</Link></li>
-                                    <li><Link className="pl-5 py-3" to="/account/bind">账号管理</Link></li>
-                                    <li><Link className="pl-5 py-3" to="/account/mail">邮件设置</Link></li>
+                                    <li><Link className={ this.props.page === 'account' ? 'pl-5 py-3 is-active' : 'pl-5 py-3'} to="/account">账户信息</Link></li>
+                                    <li><Link className={ this.props.page === 'password' ? 'pl-5 py-3 is-active' : 'pl-5 py-3'} to="/account/password">修改密码</Link></li>
+                                    <li><Link className={ this.props.page === 'bind' ? 'pl-5 py-3 is-active' : 'pl-5 py-3'} to="/account/bind">账号管理</Link></li>
+                                    <li><Link className={ this.props.page === 'mail' ? 'pl-5 py-3 is-active' : 'pl-5 py-3'} to="/account/mail">邮件设置</Link></li>
                                 </ul>
                             </aside>
                         </section>
-                    </div>
-                    <div className="column">
-                        <section className="section pt-4">
-                            Content
+
+                        <section className="section py-4 is-hidden-tablet">
+                            <div className="tabs">
+                                <ul>
+                                    <li className={ this.props.page === 'account' ? 'is-active' : ''}><Link to="/account">账户信息</Link></li>
+                                    <li className={ this.props.page === 'password' ? 'is-active' : ''}><Link to="/account/password">修改密码</Link></li>
+                                    <li className={ this.props.page === 'bind' ? 'is-active' : ''}><Link to="/account/bind">账号管理</Link></li>
+                                    <li className={ this.props.page === 'mail' ? 'is-active' : ''}><Link to="/account/mail">邮件设置</Link></li>
+                                </ul>
+                            </div>
                         </section>
                     </div>
+                    {/* <div className="column">
+                        <section className="section pt-4 has-text-centered">
+                            <h1 className="title has-text-dark">{ this.props.title }</h1>
+                            <h2 className="subtitle has-text-grey-dark">{ this.props.subtitle }</h2>
+                            { this.props.children }
+                        </section>
+                    </div> */}
                 </div>
+                <section className="section has-text-centered pt-0" style={{ marginTop: '-1rem' }}>
+                    <h1 className="title is-3 pb-2 has-text-dark">{ this.props.title }</h1>
+                    <h2 className="subtitle is-6 has-text-grey-dark">{ this.props.subtitle }</h2>
+                 
+                    { this.props.children }
+                </section>
             </Fragment>
         );
     }
