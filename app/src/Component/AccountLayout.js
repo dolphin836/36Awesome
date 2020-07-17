@@ -81,19 +81,20 @@ class AccountLayout extends Component {
                             </div>
                         </section>
                     </div>
-                    {/* <div className="column">
-                        <section className="section pt-4 has-text-centered">
-                            <h1 className="title has-text-dark">{ this.props.title }</h1>
-                            <h2 className="subtitle has-text-grey-dark">{ this.props.subtitle }</h2>
-                            { this.props.children }
-                        </section>
-                    </div> */}
                 </div>
-                <section className="section has-text-centered pt-0" style={{ marginTop: '-1rem' }}>
-                    <h1 className="title is-3 pb-2 has-text-dark">{ this.props.title }</h1>
-                    <h2 className="subtitle is-6 has-text-grey-dark">{ this.props.subtitle }</h2>
-                 
-                    { this.props.children }
+                <section className="section pt-0" style={{ marginTop: '-1rem' }}>
+                    <div className="has-text-centered">
+                        <h1 className="title is-3 pb-2 has-text-title">{ this.props.title }</h1>
+                        <h2 className="subtitle is-6 has-text-subtitle">{ this.props.subtitle }</h2>
+                    </div>
+                    <div className="columns">
+                        <div className="column is-6 is-offset-3">
+                            <section className="section">
+                                { this.props.children }
+                            </section>
+                        </div>
+                    </div>
+
                 </section>
             </Fragment>
         );
