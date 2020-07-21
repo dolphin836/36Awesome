@@ -1,9 +1,15 @@
-@import "variables.scss";
+@import "variables.sass";
 @import "~bulma/bulma.sass";
 
-body
-  background-color: $background-color
+.awesome
+  display: flex
   min-height: 100vh
+  flex-direction: column
+
+.app 
+  flex: 1
+  padding-bottom: 4rem
+
 
 .hero-background 
   @extend .hero
