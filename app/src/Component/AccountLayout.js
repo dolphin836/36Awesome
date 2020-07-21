@@ -88,7 +88,7 @@ class AccountLayout extends Component {
                             <h2 className="subtitle is-6 has-text-subtitle">{ this.props.subtitle }</h2>
                         </div>
                         <div className="columns">
-                            <div className="column is-6 is-offset-3">
+                            <div className="column is-8-tablet is-offset-2-tablet is-6-desktop is-offset-3-desktop is-4-widescreen is-offset-4-widescreen">
                                 <section className="section">
                                     { this.props.children }
                                 </section>

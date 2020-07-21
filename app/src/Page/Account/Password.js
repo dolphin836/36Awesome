@@ -31,9 +31,9 @@ class Password extends Component {
                         <input className="input" type="password" />
                     </div>
                 </div>
-                <div class="field">
-                    <div class="control">
-                        <button class="button is-link">确 定</button>
+                <div className="field is-grouped is-grouped-right">
+                    <div className="control">
+                        <button className="button is-link is-radiusless">确 定</button>
                     </div>
                 </div>
             </AccountLayout>
