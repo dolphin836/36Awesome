@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import AccountLayout from '../../Component/AccountLayout';
 import Avatar from '../../Assent/Image/default-avatar.png';
+import { FaAdobe } from "react-icons/fa";
+import { FilePond, registerPlugin } from 'react-filepond';
+import 'filepond/dist/filepond.min.css';
 
 class Account extends Component {
   constructor(props) {
@@ -20,6 +23,8 @@ class Account extends Component {
           </figure>
           <h3 className="pt-2 is-6">欢迎您，<strong>海兵大侠</strong></h3>
           <h3 className="pt-2 is-6">您最近一次登录时间 2020-07-17 12:00:00</h3>
+          <FaAdobe />
+          <FilePond allowMultiple={true} maxFiles={3} server='/api'/>
         </div>
       </AccountLayout>
     );

@@ -48,12 +48,17 @@ class AccountLayout extends Component {
                                 </div>
                             </div>
                             <div className="level-right">
-                                <div className="level-item">
-                                    <figure className="image is-32x32">
-                                        <Link to="/account">
+                                <div className="level-item dropdown is-hoverable is-right">
+                                    <div className="dropdown-trigger">
+                                        <figure className="image is-32x32">
                                             <img className="is-rounded" src={ Avatar } />
-                                        </Link>
-                                    </figure>
+                                        </figure>
+                                    </div>
+                                    <div className="dropdown-menu" role="menu">
+                                        <div className="dropdown-content">
+                                            <a onClick={ this.signOut } className="dropdown-item">退 出</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </nav>
