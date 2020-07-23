@@ -14,17 +14,19 @@ const API  = axios.create({
     }
 });
 // 登录
-const signIn = function (token) {
+const signIn = function (data) {
     // 添加到 Axios 实例中
-    API.defaults.headers['Token'] = token;
+    API.defaults.headers['Token'] = data.token;
     // 添加到 Local Storage 中
-    localStorage.setItem('token', token);
+    localStorage.setItem('token', data.token);
+    localStorage.setItem('member', JSON.stringify(data.member));
 }
 
 // 退出登录
 const signOut = function (token) {
     // 添加到 Local Storage 中
     localStorage.removeItem('token');
+    localStorage.removeItem('member');
 }
 
 export {

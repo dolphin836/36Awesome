@@ -2,8 +2,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { signOut } from '../API';
-import { isAuthenticated } from '../Auth';
-import Avatar from '../Assent/Image/default-avatar.png';
+import { isAuthenticated, getMemberAvatar } from '../Auth';
 import Footer from './Footer';
 
 class AccountLayout extends Component {
@@ -51,7 +50,7 @@ class AccountLayout extends Component {
                                 <div className="level-item dropdown is-hoverable is-right">
                                     <div className="dropdown-trigger">
                                         <figure className="image is-32x32">
-                                            <img className="is-rounded" src={ Avatar } />
+                                            <img className="is-rounded" src={ getMemberAvatar() } />
                                         </figure>
                                     </div>
                                     <div className="dropdown-menu" role="menu">

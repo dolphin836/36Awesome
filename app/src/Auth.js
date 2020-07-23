@@ -1,5 +1,8 @@
+import defaultAvatar from './Assent/Image/default-avatar.png';
+/**
+ * 判断是否登录
+ */
 const isAuthenticated = () => {
-    // 判断是否登录
     let token = localStorage.getItem('token');
 
     if (token === null) {
@@ -9,11 +12,54 @@ const isAuthenticated = () => {
     return true;
 };
 
+/**
+ * 获取 Token
+ */
 const token = () => {
     return localStorage.getItem('token');
 }
 
+/**
+ * 获取用户头像
+ */
+const getMemberAvatar = () => {
+    let memberText = localStorage.getItem('member');
+
+    if (memberText === null) {
+        return defaultAvatar;
+    }
+
+    let member = JSON.parse(memberText);
+
+    if (member.avatar === '') {
+        return defaultAvatar;
+    }
+
+    return member.avatar;
+}
+
+/**
+ * 获取用户名称
+ */
+const getMemberName = () => {
+    let memberText = localStorage.getItem('member');
+
+    if (memberText === null) {
+        return "";
+    }
+
+    let member = JSON.parse(memberText);
+    // 有昵称返回昵称，没有返回用户名
+    if (member.nickname === '') {
+        return member.username;
+    }
+
+    return member.nickname;
+}
+
 export {
     isAuthenticated,
-    token
+    token,
+    getMemberAvatar,
+    getMemberName
 };
