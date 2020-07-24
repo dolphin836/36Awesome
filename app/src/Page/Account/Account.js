@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import AccountLayout from '../../Component/AccountLayout';
 import { getMemberAvatar, getMemberName } from '../../Auth';
-import { API } from '../../API';
+import { API, updateMember } from '../../API';
 import { FaPen } from "react-icons/fa";
 
 class Account extends Component {
@@ -45,12 +45,10 @@ class Account extends Component {
 
       return;
     }
-    // 取出数据
-    let data = json.data;
-    // 更新头像
-    this.setState({
-      avatar: data.avatar
-    });
+    // 更新本地数据
+    updateMember(json.data);
+
+    window.location.reload(false);
   };
 
   render() {
@@ -61,7 +59,9 @@ class Account extends Component {
             <img className="is-rounded" src={ this.state.avatar } />
             <button onClick={ this.onAvatarClick } className="mt-4 button is-circle is-hidden"><FaPen size="12" /></button>
           </figure>
-          <h3 className="pt-4 is-5">欢迎您，<strong>{ getMemberName() }</strong></h3>
+          <h3 className="pt-4 is-size-5">欢迎您，<strong>{ getMemberName() }</strong></h3>
+          <h3 className="is-size-7">dolphin</h3>
+          <h3 className="pt-4 is-size-6">故君子和而不流，强哉矫！中立而不倚，强哉矫！国有道，不变塞焉，强哉矫！国无道，至死不变，强哉矫！</h3>
           
           <input className="is-hidden" type="file" ref={ this.avatarInput } onChange={ this.onAvatarUpload } />
 

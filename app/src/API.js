@@ -34,8 +34,14 @@ const signOut = function (token) {
     localStorage.removeItem('member');
 }
 
+// 更新用户信息
+const updateMember = function (data) {
+    localStorage.setItem('member', JSON.stringify(data));
+}
+
 export {
     API,
     signIn,
-    signOut
+    signOut,
+    updateMember
 };
