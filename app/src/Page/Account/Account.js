@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AccountLayout from '../../Component/AccountLayout';
 import { getMemberAvatar, getMemberName } from '../../Auth';
+import { API } from '../../API';
 import { FaPen } from "react-icons/fa";
 
 class Account extends Component {
@@ -8,27 +9,62 @@ class Account extends Component {
     super(props);
 
     this.state = {
-      image: ""
+      avatar: getMemberAvatar(),
+       error: ''
     };
-  }
 
-  handleDrop = dropped => {
-    this.setState({ image: dropped[0] })
+    this.avatarInput = React.createRef();
   }
+  // 点击头像
+  onAvatarClick = () => {
+    this.avatarInput.current.click();
+  }
+  // 上传头像
+  onAvatarUpload = async event => {
+    event.preventDefault();
+    //
+    let formData = new FormData();
+
+    formData.append('file', event.target.files[0])
+
+    let config = {
+      headers: {
+        'content-type': 'multipart/form-data'
+      }
+    }
+    // 请求上传接口
+    const response = await API.post(`/upload/avatar`, formData, config);
+        
+    let json = response.data;
+
+    if (json.code != 0) {
+      // 设置错误信息
+      this.setState({
+        error: json.message
+      });
+
+      return;
+    }
+    // 取出数据
+    let data = json.data;
+    // 更新头像
+    this.setState({
+      avatar: data.avatar
+    });
+  };
 
   render() {
     return (
       <AccountLayout page="account" title="个人信息" subtitle="您在 36Awesome 中使用的基本信息，例如您的姓名和头像">
         <div className="has-text-centered">
           <figure className="image is-128x128" style={{ margin: '0 auto' }}>
-            <img className="is-rounded" src={ getMemberAvatar() } />
+            <img className="is-rounded" src={ this.state.avatar } />
+            <button onClick={ this.onAvatarClick } className="mt-4 button is-circle is-hidden"><FaPen size="12" /></button>
           </figure>
-          <h3 className="pt-4 is-5"><strong>{ getMemberName() }</strong></h3>
-          <h3 className="is-7">dolphin</h3>
-          <h3 className="pt-4 is-7">故君子和而不流，强哉矫！中立而不倚，强哉矫！国有道，不变塞焉，强哉矫！国无道，至死不变，强哉矫！</h3>
+          <h3 className="pt-4 is-5">欢迎您，<strong>{ getMemberName() }</strong></h3>
+          
+          <input className="is-hidden" type="file" ref={ this.avatarInput } onChange={ this.onAvatarUpload } />
 
-          {/* <button className="mt-4 button is-link">编 辑</button> */}
-          <button className="mt-4 button is-circle"><FaPen /></button>
         </div>
       </AccountLayout>
     );

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { isAuthenticated, token } from './Auth';
 
 const DEV  = 'http://localhost:8080';
 
@@ -13,6 +14,10 @@ const API  = axios.create({
         'Application': 3
     }
 });
+
+if (isAuthenticated()) {
+    API.defaults.headers['Token'] = token();
+}
 // 登录
 const signIn = function (data) {
     // 添加到 Axios 实例中
