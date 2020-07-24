@@ -13,6 +13,8 @@ class Account extends Component {
        error: ''
     };
 
+    console.log(getMemberAvatar());
+
     this.avatarInput = React.createRef();
   }
   // 点击头像
@@ -59,10 +61,8 @@ class Account extends Component {
             <img className="is-rounded" src={ this.state.avatar } />
             <button onClick={ this.onAvatarClick } className="mt-4 button is-circle is-hidden"><FaPen size="12" /></button>
           </figure>
-          <h3 className="pt-4 is-size-5">欢迎您，<strong>{ getMemberName() }</strong></h3>
-          <h3 className="is-size-7">dolphin</h3>
-          <h3 className="pt-4 is-size-6">故君子和而不流，强哉矫！中立而不倚，强哉矫！国有道，不变塞焉，强哉矫！国无道，至死不变，强哉矫！</h3>
-          
+          <h3 className="mt-4 is-size-5"><span className="is-size-6 has-text-weight-normal">欢迎您，</span><strong>{ getMemberName() }</strong></h3>
+
           <input className="is-hidden" type="file" ref={ this.avatarInput } onChange={ this.onAvatarUpload } />
 
         </div>

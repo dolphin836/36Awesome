@@ -73,7 +73,7 @@ class SignUp extends Component {
       // 取出数据
       let data = json.data;
       // 数据格式校验
-      if (! data.hasOwnProperty('member_id') || ! data.hasOwnProperty('token')) {
+      if (! data.hasOwnProperty('member') || ! data.hasOwnProperty('token')) {
         // 设置通用错误信息
         this.setState({
           commonError: 'Data Error'
@@ -87,7 +87,7 @@ class SignUp extends Component {
         commonError: ''
       });
       // 更新 Token
-      signIn(data.token);
+      signIn(data);
       // 跳转主页
       this.props.history.push("/account");
     } catch (error) {

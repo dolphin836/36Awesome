@@ -1,6 +1,6 @@
 // 注册、登录页公共模版
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { signOut } from '../API';
 import { isAuthenticated, getMemberAvatar } from '../Auth';
 import Footer from './Footer';
@@ -106,4 +106,4 @@ class AccountLayout extends Component {
     }
 }
 
-export default AccountLayout;
+export default withRouter(AccountLayout);

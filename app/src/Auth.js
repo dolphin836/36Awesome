@@ -31,7 +31,7 @@ const getMemberAvatar = () => {
 
     let member = JSON.parse(memberText);
 
-    if (member.avatar === '') {
+    if (member.avatar === null) {
         return defaultAvatar;
     }
 
@@ -50,7 +50,7 @@ const getMemberName = () => {
 
     let member = JSON.parse(memberText);
     // 有昵称返回昵称，没有返回用户名
-    if (member.nickname === '') {
+    if (member.nickname === null) {
         return member.username;
     }
 
