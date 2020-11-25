@@ -167,7 +167,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
                             let categoryItem     = createNode(menu, 'li', isActive);
                             let categoryItemLink = createNode(categoryItem, 'a', '', category.name);
-                            categoryItemLink.setAttribute('href', '/' + category.mark);
+
+                            let link             = '/' + category.mark;
+
+                            if (category.mark == 'recommend') {
+                                link             = '/'
+                            }
+
+                            categoryItemLink.setAttribute('href', link);
                         }); 
                     });
                 }
