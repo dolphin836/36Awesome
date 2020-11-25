@@ -91,7 +91,7 @@ function build(cb) {
 
     categoryArr.map(function (category) {
         let cssPath          = '/dist/css/awesome.css';
-        let scriptPath       = '/dist/css/awesome.js';
+        let scriptPath       = '/dist/js/awesome.js';
         let categoryJsonPath = '/data/category.json';
         let dataPath         = '/data/tool.json';
         let htmlPath         = '../';
