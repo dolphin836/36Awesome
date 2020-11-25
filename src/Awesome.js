@@ -8,8 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
     var Data              = new Array();
     // 返回顶部按钮是否隐藏
     var isHiddenTopButton = true;
-    // 分组标题的坐标，用于滚动时导航栏的定位
-    var titleY            = new Array();
 
     // 初始化
     init();
@@ -34,16 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (Y < 337 && ! isHiddenTopButton) {
             topButton.classList.add("is-hidden");
             isHiddenTopButton = true;
-        }
-        // 小于 200 
-        if (Y <= 150) {
-            activeNav(titleY[0][0]);
-        } else {
-            titleY.map(function (item) {
-                if (Y + 20 >= item[1]) {
-                    activeNav(item[0]);
-                }
-            });
         }
     });
 
@@ -119,30 +107,12 @@ document.addEventListener('DOMContentLoaded', () => {
     function init() {
         main.innerHTML = '';
         menu.innerHTML = '';
-        // 从本地读取数据
-        let data  = store.get('data');
-        // 得到 Json 文件的 Hash 值
-        let sHash = getHash();
-        // 得到本地存储的 Hash 值
-        let cHash = store.get('hash');
-        // 从本地读取数据失败，从服务器获取数据
-        if (data === undefined || cHash === undefined || cHash !== sHash) {
-            // 从服务器获取数据
-            get(GROUP);
-        } else {
-            // 渲染数据
-            draw(data);
-        }
+        category();
+        get(GROUP);
     }
 
     // 从服务器获取数据
     function get(server) {
-        let sHash = getHash();
-        // 将数据 Hash 值存储到本地
-        if (sHash) {
-            store.set('hash', sHash);
-        }
-        
         fetch(server)
             .then(function (response) {
                 if (response.ok) {
@@ -151,8 +121,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     Data = []
 
                     json.then(function(data) {  
-                        // 将数据存储到本地
-                        store.set('data', data);
                         // 渲染数据
                         draw(data);
                     });
@@ -166,7 +134,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // 渲染数据
     function draw(data) {
         data.map(function (group) {
-            addMenu(group.name, group.mark);
             addGroup(group);
             // 将网站数据添加到全局变量，用于搜索
             let siteArr = group.data;
@@ -177,41 +144,37 @@ document.addEventListener('DOMContentLoaded', () => {
         }); 
     }
 
-    // 得到 Json 文件的 Hash 值
-    function getHash() {
-        let strArr = GROUP.split('-');
+    // 导航
+    function category() {
+        fetch(CATEGORY)
+            .then(function (response) {
+                if (response.ok) {
+                    let json = response.json();
 
-        if (strArr.length == 1) {
-            return false;
-        }
+                    json.then(function(data) {  
+                        data.map(function (category) {
+                            let pathname     = window.location.pathname;
+                            let categoryCode = pathname.replace(/\//g, '');
+                            let isActive     = '';
 
-        let hash = strArr[1].split('.');
+                            if (categoryCode == category.mark) {
+                                isActive = 'is-active';
+                            }
 
-        return hash[0];
-    }
+                            if (categoryCode == '' && category.mark == 'recommend') {
+                                isActive = 'is-active';
+                            }
 
-    // 添加快捷导航
-    function addMenu(name, mark) {
-        let li = createNode(menu, 'li', mark + '-nav');
-        // 第一个
-        let navArr = menu.children;
-
-        if (navArr.length === 0) {
-            li.className = mark + '-nav' + ' is-active';
-        }
-
-        let a = createNode(li, 'a', '', name);
-        // 添加点击事件
-        a.addEventListener('click', function(e) {
-            titleY.map(function (item) {
-                if (mark === item[0]) {
-                    window.scrollTo({
-                        top: item[1] - 20,
-                        behavior: 'smooth'
+                            let categoryItem     = createNode(menu, 'li', isActive);
+                            let categoryItemLink = createNode(categoryItem, 'a', '', category.name);
+                            categoryItemLink.setAttribute('href', '/' + category.mark);
+                        }); 
                     });
                 }
+            })
+            .catch(function (error) {
+                console.log(JSON.stringify(error));
             });
-        });
     }
 
     // 添加分组
@@ -248,9 +211,6 @@ document.addEventListener('DOMContentLoaded', () => {
         let h1 = createNode(div, 'h1', 'title up', group.name);
         // 数量
         createNode(h1, 'span', 'is-size-6 has-text-grey-light', group.data.length);
-        // 记录分组标题的 Y 坐标
-        let Y = [group.mark, h1.offsetTop];
-        titleY.push(Y);
     }
 
     // 添加网站

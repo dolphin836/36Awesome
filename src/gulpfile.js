@@ -1,5 +1,5 @@
 let gulp         = require('gulp');
-let { series }   = require('gulp');
+let { parallel } = require('gulp');
 let del          = require('del');
 let miniCss      = require('gulp-clean-css');         // Css 文件压缩
 let concat       = require('gulp-concat');            // 多个文件合并为一个
@@ -18,9 +18,9 @@ function font(cb) {
 }
 // Site 文件
 function json(cb) {
-    gulp.src('./site.json')
+    gulp.src('./data/*.json')
         .pipe(rev())
-        .pipe(gulp.dest('..'))
+        .pipe(gulp.dest('../data'))
         .pipe(rev.manifest({
             path: 'json-manifest.json'
         }))
@@ -56,49 +56,73 @@ function script(cb) {
 
     cb();
 };
-// 替换
-function replac(cb) {
-    gulp.src(['../dist/rev/*.json', './index.html'])
-        .pipe(htmlReplace({
-            'awesome-css': '/dist/css/awesome.css',
-            'awesome-script': '/dist/js/awesome.js'
-        }))
-        .pipe(revCollector())
-        .pipe(gulp.dest('../'));
-
-    cb();
-};
 // 清除
 function clean(cb) {
     del
     (
         [
             '../dist',
-            '../site-*.json',
+            '../data',
+            '../tool',
             '../index.html'
         ], {force: true}
     );
 
     cb();
 }
-
 // Static server
-// gulp.task('sync', function() {
-//     browserSync.init({
-//         server: {
-//             baseDir: "./"
-//         }
-//     });
+function sync(cb) {
+    browserSync.init({
+        server: {
+            baseDir: "./"
+        }
+    });
 
-//     gulp.watch(["index.html", "Awesome.css", "Awesome.js"]).on('change', browserSync.reload);
-// });
+    gulp.watch(["index.html", "Awesome.css", "Awesome.js", "./data/*.json"]).on('change', browserSync.reload);
 
-// gulp.task('default', ['awesome-css', 'font', 'awesome-script', 'json']);
+    cb();
+};
+// 编译
+function build(cb) {
+    let categoryArr = [
+        'recommend',
+        'tool'
+    ];
+
+    categoryArr.map(function (category) {
+        let cssPath          = '/dist/css/awesome.css';
+        let scriptPath       = '/dist/css/awesome.js';
+        let categoryJsonPath = '/data/category.json';
+        let dataPath         = '/data/tool.json';
+        let htmlPath         = '../';
+        // 推荐存在根目录
+        if (category != 'recommend') {
+            cssPath          = '..' + cssPath;
+            scriptPath       = '..' + scriptPath;
+            categoryJsonPath = '..' + categoryJsonPath;
+            dataPath         = '..' + dataPath;
+            htmlPath         = htmlPath + category;
+        }
+
+        gulp.src(['../dist/rev/*.json', './index.html'])
+            .pipe(htmlReplace({
+                'awesome-css': cssPath,
+                'awesome-script': scriptPath,
+                'category': '<script>const CATEGORY = "' + categoryJsonPath + '";</script>',
+                'data': '<script>const GROUP = "' + dataPath + '";</script>'
+            }))
+            .pipe(revCollector())
+            .pipe(gulp.dest(htmlPath));
+    });
+
+    cb();
+}
 
 exports.clean   = clean;
-exports.default = series(font, json, css, script);
-exports.replac  = replac;
+exports.default = parallel(font, json, css, script);
+exports.sync    = sync;
+exports.build   = build;
 
 // gulp clean
 // gulp
-// gulp rev
+// gulp replac

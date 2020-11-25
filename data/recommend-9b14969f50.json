@@ -6,24 +6,14 @@
             {
                 "name": "时间戳转换",
                 "word": "Unix 时间戳与时间字符串格式互转工具",
-                "href": "https://www.haibing.site/TimestampTransform/index.html",
+                "href": "https://www.haibing.site/TimestampTransform",
                 "icon": "far fa-clock"
             },
             {
                 "name": "生成随机密码",
                 "word": "生成随机、安全的密码",
-                "href": "https://www.haibing.site/GeneratorRandonPassword/index.html",
+                "href": "https://www.haibing.site/GeneratorRandomPassword",
                 "icon": "fab fa-expeditedssl"
-            },
-            {
-                "name": "Json 转换",
-                "word": "Json 格式转换工具",
-                "href": "https://www.haibing.site/Json/index.html"
-            },
-            {
-                "name": "SQL 转换",
-                "word": "SQL 格式转换工具",
-                "href": "https://www.haibing.site/SQL/index.html"
             }
         ]
     },
