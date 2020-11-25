@@ -93,7 +93,7 @@ function build(cb) {
         let cssPath          = '/dist/css/awesome.css';
         let scriptPath       = '/dist/js/awesome.js';
         let categoryJsonPath = '/data/category.json';
-        let dataPath         = '/data/tool.json';
+        let dataPath         = '/data/' + category + '.json';
         let htmlPath         = '../';
         // 推荐存在根目录
         if (category != 'recommend') {
