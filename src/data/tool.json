@@ -6,23 +6,28 @@
             {
                 "name": "DeepL",
                 "href": "https://www.deepl.com/translator",
-                "word": "人工智能语言辅助"
+                "word": "人工智能语言辅助",
+                "icon": "fas fa-language"
             },
             {
                 "name": "Google 翻译",
-                "href": "https://translate.google.cn"
+                "href": "https://translate.google.cn",
+                "icon": "fas fa-language"
             },
             {
                 "name": "有道翻译",
-                "href": "http://fanyi.youdao.com"
+                "href": "http://fanyi.youdao.com",
+                "icon": "fas fa-language"
             },
             {
                 "name": "百度翻译",
-                "href": "https://fanyi.baidu.com"
+                "href": "https://fanyi.baidu.com",
+                "icon": "fas fa-language"
             },
             {
                 "name": "彩云小译",
-                "href": "https://fanyi.caiyunapp.com"
+                "href": "https://fanyi.caiyunapp.com",
+                "icon": "fas fa-language"
             }
         ]
     },
@@ -88,43 +93,43 @@
                 "name": "Google 文档",
                 "href": "https://docs.google.com",
                 "word": "Google 在线文档工具",
-                "icon": "fa fa-file-excel-o"
+                "icon": "far fa-file-word"
             },
             {
                 "name": "腾讯文档",
                 "href": "https://docs.qq.com",
                 "word": "让协作更高效，创作更轻松",
-                "icon": "fa fa-file-excel-o"
+                "icon": "far fa-file-word"
             },
             {
                 "name": "松果文档",
                 "href": "https://www.sg.work",
                 "word": "专业级在线文档",
-                "icon": "fa fa-file-word-o"
+                "icon": "far fa-file-word"
             },
             {
                 "name": "语雀",
                 "href": "https://www.yuque.com",
                 "word": "专业的云端知识库",
-                "icon": "fa fa-file-word-o"
+                "icon": "far fa-file-word"
             },
             {
                 "name": "石墨文档",
                 "href": "https://shimo.im",
                 "word": "全新一代云端 Office，面向未来的办公软件",
-                "icon": "fa fa-file-word-o"
+                "icon": "far fa-file-word"
             },
             {
                 "name": "飞书文档",
                 "href": "https://docs.feishu.cn",
                 "word": "共创无限可能",
-                "icon": "fa fa-file-word-o"
+                "icon": "far fa-file-word"
             },
             {
                 "name": "金山文档",
                 "href": "https://www.kdocs.cn",
                 "word": "提升协作效率，开启您的高效办公之旅",
-                "icon": "fa fa-file-word-o"
+                "icon": "far fa-file-word"
             }
         ]
     },
@@ -136,33 +141,33 @@
                 "name": "奶⽜快传",
                 "href": "https://cowtransfer.com",
                 "word": "主打年轻客群的⼤⽂件传输服务商",
-                "icon": "fa fa fa-clone"
+                "icon": "far fa-copy"
             },
             {
                 "name": "文叔叔",
                 "href": "https://www.wenshushu.cn",
-                "icon": "fa fa fa-clone"
+                "icon": "far fa-copy"
             },
             {
                 "name": "AirPortal",
                 "href": "https://airportal.cn",
-                "icon": "fa fa fa-clone"
+                "icon": "far fa-copy"
             },
             {
                 "name": "Dropbox Transfer",
                 "href": "https://www.dropbox.com/transfer",
-                "icon": "fa fa fa-clone"
+                "icon": "far fa-copy"
             },
             {
                 "name": "pCloud Transfer",
                 "href": "https://transfer.pcloud.com",
-                "icon": "fa fa fa-clone"
+                "icon": "far fa-copy"
             },
             {
                 "name": "Filemail",
                 "href": "https://www.filemail.com",
                 "word": "The best way to securely send large files",
-                "icon": "fa fa fa-clone"
+                "icon": "far fa-copy"
             }
         ]
     },
@@ -218,8 +223,7 @@
             {
                 "name": "文件格式转换",
                 "href": "https://cloudconvert.com",
-                "word": "多种文件格式转换",
-                "icon": "far fa fa-files-o"
+                "word": "多种文件格式转换"
             }
         ]
     }
