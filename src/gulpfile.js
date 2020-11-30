@@ -86,7 +86,8 @@ function sync(cb) {
 function build(cb) {
     let categoryArr = [
         'recommend',
-        'tool'
+        'tool',
+        'blog'
     ];
 
     categoryArr.map(function (category) {

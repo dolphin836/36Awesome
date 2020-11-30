@@ -88,32 +88,6 @@
         ]
     },
     {
-        "name": "博 客",
-        "mark": "blog",
-        "data": [
-            {
-                "name": "阮一峰",
-                "href": "http://www.ruanyifeng.com/blog"
-            },
-            {
-                "name": "廖雪峰",
-                "href": "https://www.liaoxuefeng.com"
-            },
-            {
-                "name": "风雪之隅",
-                "href": "http://www.laruence.com"
-            },
-            {
-                "name": "酷壳",
-                "href": "https://coolshell.cn"
-            },
-            {
-                "name": "海兵大侠",
-                "href": "https://github.com/dolphin836/Blog"
-            }
-        ]
-    },
-    {
         "name": "软 件",
         "mark": "software",
         "data": [
