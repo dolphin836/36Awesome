@@ -6,5 +6,9 @@
     {
         "name": "工 具",
         "mark": "tool"
+    },
+    {
+        "name": "娱 乐",
+        "mark": "fun"
     }
 ]
