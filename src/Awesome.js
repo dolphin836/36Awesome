@@ -239,7 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             '</span>' +
                         '</span>' +
                         '<span class="tag is-rounded is-primary"> ' +
-                            '<a href="' + site.href + '" class="has-text-white" target="_blank">' + site.name + '</a>' +
+                            '<a href="' + site.href + '?utm_source=https://36awesome.com" class="has-text-white" target="_blank">' + site.name + '</a>' +
                         '</span>' +
                     '</div>';
         // 手机端 1 列、平板端 2 列、桌面端 3 列、高分辨端 4 列
