@@ -1,0 +1,26 @@
+[
+    {
+        "name": "视 频",
+        "mark": "video",
+        "data": [
+            {
+                "name": "Youtube",
+                "href": "https://www.youtube.com",
+                "word": "Youtube",
+                "icon": "fab fa-youtube"
+            }
+        ]
+    },
+    {
+        "name": "图 片",
+        "mark": "photo",
+        "data": [
+            {
+                "name": "Unsplash",
+                "href": "https://unsplash.com",
+                "word": "Unsplash",
+                "icon": "fas fa-camera-retro"
+            }
+        ]
+    }
+]

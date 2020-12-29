@@ -10,5 +10,9 @@
     {
         "name": "博 客",
         "mark": "blog"
+    },
+    {
+        "name": "娱 乐",
+        "mark": "fun"
     }
 ]

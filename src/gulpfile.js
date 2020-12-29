@@ -64,6 +64,8 @@ function clean(cb) {
             '../dist',
             '../data',
             '../tool',
+            '../blog',
+            '../fun',
             '../index.html'
         ], {force: true}
     );
@@ -87,7 +89,8 @@ function build(cb) {
     let categoryArr = [
         'recommend',
         'tool',
-        'blog'
+        'blog',
+        'fun'
     ];
 
     categoryArr.map(function (category) {
@@ -126,4 +129,4 @@ exports.build   = build;
 
 // gulp clean
 // gulp
-// gulp replac
+// gulp build
